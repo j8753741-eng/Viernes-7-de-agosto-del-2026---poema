@@ -1,0 +1,2880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>✦ Donde la Noche Me Enseñó a Pronunciarte con el Corazón ✦</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 8%, rgba(117,83,180,.18), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(80,62,150,.10), transparent 28%),
+        linear-gradient(180deg,#03040c 0%,#070817 45%,#02030a 100%);
+    color:#eeeaff;
+    overflow-x:hidden;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* =========================================================
+   CIELO
+========================================================= */
+
+.sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:0 0 8px rgba(255,255,255,.9);
+    animation:twinkle 3s infinite ease-in-out;
+    opacity:.65;
+}
+
+.star.big{
+    width:4px;
+    height:4px;
+    box-shadow:
+        0 0 8px rgba(255,255,255,.9),
+        0 0 18px rgba(190,170,255,.45);
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.25;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* estrellas interactivas */
+
+.touch-star{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:
+        0 0 8px #fff,
+        0 0 22px rgba(200,180,255,.7);
+    cursor:pointer;
+    pointer-events:auto;
+    transition:.5s ease;
+    z-index:3;
+}
+
+.touch-star:hover,
+.touch-star.active{
+    transform:scale(2.8);
+    box-shadow:
+        0 0 10px #fff,
+        0 0 30px rgba(210,190,255,.9),
+        0 0 60px rgba(160,130,255,.45);
+}
+
+/* =========================================================
+   LUNA
+========================================================= */
+
+.moon{
+    position:fixed;
+    top:7vh;
+    right:8vw;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,#fff 0%,#eee8ff 42%,#bbb3d4 100%);
+    box-shadow:
+        0 0 25px rgba(235,225,255,.4),
+        0 0 80px rgba(150,130,230,.18);
+    z-index:1;
+    opacity:.78;
+    transition:1.5s ease;
+}
+
+.moon::after{
+    content:"";
+    position:absolute;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 65% 35%,#03040c 0%,#03040c 100%);
+    transform:translate(27px,-8px);
+    opacity:.93;
+}
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.cover{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 25px;
+    z-index:2;
+}
+
+.cover-inner{
+    max-width:850px;
+    animation:appear 2s ease forwards;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.date{
+    font-family:'Cinzel',serif;
+    font-size:.72rem;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#aaa1c8;
+    margin-bottom:30px;
+}
+
+.title{
+    font-family:'Cinzel',serif;
+    font-size:clamp(2rem,6vw,4.6rem);
+    line-height:1.25;
+    font-weight:600;
+    letter-spacing:2px;
+    text-shadow:
+        0 0 20px rgba(202,185,255,.15);
+}
+
+.title-line{
+    display:block;
+}
+
+.title-line:last-child{
+    margin-top:12px;
+    color:#ddd4f4;
+}
+
+.cover-symbol{
+    margin:40px auto 32px;
+    width:70px;
+    height:70px;
+    border:1px solid rgba(220,210,255,.28);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.8rem;
+    color:#e4dcff;
+    box-shadow:
+        0 0 30px rgba(160,130,255,.1),
+        inset 0 0 20px rgba(160,130,255,.05);
+    animation:heartPulse 3s infinite ease-in-out;
+}
+
+@keyframes heartPulse{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 0 25px rgba(160,130,255,.08);
+    }
+
+    50%{
+        transform:scale(1.08);
+        box-shadow:0 0 45px rgba(190,170,255,.2);
+    }
+}
+
+.subtitle{
+    color:#9d96b2;
+    font-size:1.15rem;
+    letter-spacing:1px;
+}
+
+.begin{
+    margin-top:55px;
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    color:#aaa4ba;
+    font-family:'Cinzel',serif;
+    font-size:.67rem;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+
+.begin span{
+    width:30px;
+    height:48px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:20px;
+    position:relative;
+}
+
+.begin span::after{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:8px;
+    border-radius:3px;
+    background:#eeeaff;
+    top:9px;
+    left:50%;
+    transform:translateX(-50%);
+    animation:scrollDot 1.8s infinite;
+}
+
+@keyframes scrollDot{
+    0%{
+        opacity:0;
+        transform:translate(-50%,0);
+    }
+    30%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translate(-50%,20px);
+    }
+}
+
+/* =========================================================
+   POEMA
+========================================================= */
+
+.poem{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:auto;
+    padding:0 22px 150px;
+}
+
+.stanza{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:90px 0;
+    opacity:0;
+    transform:translateY(45px);
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+}
+
+.stanza.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.stanza-inner{
+    width:100%;
+    max-width:690px;
+    text-align:center;
+    position:relative;
+}
+
+.stanza-inner::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:-35px;
+    width:1px;
+    height:20px;
+    background:linear-gradient(
+        transparent,
+        rgba(210,195,255,.4)
+    );
+}
+
+.verse{
+    font-size:clamp(1.35rem,3vw,1.8rem);
+    line-height:1.65;
+    color:#ded9e8;
+    margin:0 0 5px;
+}
+
+.verse.soft{
+    color:#a8a2b8;
+}
+
+.verse.highlight{
+    color:#f2edff;
+    font-size:clamp(1.55rem,3.5vw,2.1rem);
+    text-shadow:0 0 20px rgba(200,180,255,.12);
+}
+
+.verse.emphasis{
+    font-size:clamp(1.8rem,4vw,2.7rem);
+    color:#f5f0ff;
+    line-height:1.4;
+    margin:20px 0;
+}
+
+.pause{
+    height:35px;
+}
+
+.small-symbol{
+    display:block;
+    margin:28px auto;
+    font-size:1rem;
+    color:#88809f;
+    letter-spacing:8px;
+}
+
+.secret{
+    color:#eee7ff;
+    font-weight:600;
+    text-shadow:
+        0 0 15px rgba(220,200,255,.25);
+}
+
+/* =========================================================
+   FRASES ESPECIALES
+========================================================= */
+
+.special{
+    position:relative;
+    margin:40px auto;
+    padding:35px 25px;
+    border-top:1px solid rgba(210,195,255,.14);
+    border-bottom:1px solid rgba(210,195,255,.14);
+}
+
+.special::before,
+.special::after{
+    content:"✦";
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    color:#81799a;
+    font-size:.7rem;
+}
+
+.special::before{
+    left:5px;
+}
+
+.special::after{
+    right:5px;
+}
+
+/* =========================================================
+   CONSTELACIÓN FINAL
+========================================================= */
+
+.final-constellation{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding:100px 20px;
+}
+
+.constellation-core{
+    position:relative;
+    width:min(650px,90vw);
+    height:520px;
+}
+
+.constellation-star{
+    position:absolute;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:white;
+    box-shadow:
+        0 0 8px white,
+        0 0 25px rgba(205,185,255,.8);
+    animation:starFinal 4s infinite ease-in-out;
+}
+
+@keyframes starFinal{
+    0%,100%{
+        opacity:.45;
+        transform:scale(.8);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+.constellation-line{
+    position:absolute;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(200,185,255,.25),
+        transparent
+    );
+    transform-origin:left center;
+}
+
+.final-message{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:30px;
+}
+
+.final-message .mini{
+    font-family:'Cinzel',serif;
+    font-size:.65rem;
+    letter-spacing:4px;
+    color:#88819a;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.final-message h2{
+    font-family:'Cinzel',serif;
+    font-size:clamp(1.5rem,5vw,2.7rem);
+    line-height:1.45;
+    color:#eeeaff;
+    max-width:600px;
+    text-shadow:0 0 25px rgba(205,185,255,.18);
+}
+
+.final-message p{
+    margin-top:25px;
+    font-size:1.25rem;
+    line-height:1.6;
+    color:#b7b0c6;
+}
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.ending{
+    text-align:center;
+    padding:70px 20px 130px;
+    position:relative;
+}
+
+.ending-symbol{
+    font-size:1.4rem;
+    color:#c9c0dd;
+    letter-spacing:10px;
+    margin-bottom:40px;
+}
+
+.ending-title{
+    font-family:'Cinzel',serif;
+    font-size:clamp(1.7rem,5vw,3rem);
+    line-height:1.5;
+    color:#eeeaff;
+}
+
+.ending-text{
+    max-width:650px;
+    margin:35px auto 0;
+    font-size:1.35rem;
+    line-height:1.7;
+    color:#b5afc1;
+}
+
+.love-final{
+    margin-top:65px;
+    font-family:'Cinzel',serif;
+    font-size:.7rem;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#8d879c;
+}
+
+/* =========================================================
+   BOTÓN ARRIBA
+========================================================= */
+
+.top{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(5,5,15,.65);
+    backdrop-filter:blur(10px);
+    color:#ddd6eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    z-index:20;
+    opacity:0;
+    pointer-events:none;
+    transition:.4s ease;
+}
+
+.top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* =========================================================
+   FRASES QUE APARECEN AL TOCAR ESTRELLAS
+========================================================= */
+
+.star-note{
+    position:fixed;
+    left:50%;
+    bottom:30px;
+    transform:translate(-50%,30px);
+    width:min(90%,500px);
+    padding:18px 22px;
+    text-align:center;
+    border:1px solid rgba(220,210,255,.15);
+    background:rgba(7,7,18,.82);
+    backdrop-filter:blur(16px);
+    border-radius:18px;
+    color:#ddd7e9;
+    font-size:1.1rem;
+    line-height:1.45;
+    z-index:30;
+    opacity:0;
+    pointer-events:none;
+    transition:.5s ease;
+}
+
+.star-note.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:600px){
+
+    .moon{
+        width:75px;
+        height:75px;
+        top:5vh;
+        right:7vw;
+        opacity:.6;
+    }
+
+    .moon::after{
+        width:75px;
+        height:75px;
+        transform:translate(20px,-6px);
+    }
+
+    .cover{
+        padding:60px 20px;
+    }
+
+    .date{
+        letter-spacing:3px;
+        font-size:.62rem;
+    }
+
+    .title{
+        font-size:clamp(1.75rem,9vw,3rem);
+        letter-spacing:1px;
+    }
+
+    .subtitle{
+        font-size:1rem;
+    }
+
+    .stanza{
+        min-height:72vh;
+        padding:75px 0;
+    }
+
+    .verse{
+        font-size:1.28rem;
+        line-height:1.7;
+    }
+
+    .verse.highlight{
+        font-size:1.48rem;
+    }
+
+    .verse.emphasis{
+        font-size:1.75rem;
+    }
+
+    .constellation-core{
+        height:470px;
+    }
+
+    .final-message h2{
+        font-size:1.65rem;
+    }
+
+    .final-message p{
+        font-size:1.12rem;
+    }
+}
+
+</style>
+</head>
+
+<body id="top">
+
+<!-- =====================================================
+     CIELO
+===================================================== -->
+
+<div class="sky" id="sky"></div>
+
+<div class="moon"></div>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section class="cover">
+
+    <div class="cover-inner">
+
+        <div class="date">
+            Viernes · 7 de agosto · 2026
+        </div>
+
+        <h1 class="title">
+            <span class="title-line">DONDE LA NOCHE</span>
+            <span class="title-line">ME ENSEÑÓ A PRONUNCIARTE</span>
+            <span class="title-line">CON EL CORAZÓN</span>
+        </h1>
+
+        <div class="cover-symbol">
+            ✦
+        </div>
+
+        <div class="subtitle">
+            Un poema escrito mientras la noche aprendía tu nombre.
+        </div>
+
+        <a href="#poema" class="begin">
+            comenzar
+            <span></span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     POEMA
+===================================================== -->
+
+<main class="poem" id="poema">
+
+
+<!-- 01 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Hay noches que simplemente llegan,
+</p>
+
+<p class="verse">
+se acomodan sobre el mundo
+</p>
+
+<p class="verse">
+y dejan que las horas pasen.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse highlight">
+Y después está esta noche…
+</p>
+
+<div class="small-symbol">✦</div>
+
+<p class="verse">
+esta noche en la que el cielo parece saber algo de nosotros,
+</p>
+
+<p class="verse">
+en la que la luna guarda silencio
+</p>
+
+<p class="verse">
+como si tuviera miedo de interrumpir
+</p>
+
+<p class="verse">
+todo lo que mi corazón quisiera decirte.
+</p>
+
+</div>
+</section>
+
+
+<!-- 02 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque si pudiera abrir mi pecho
+</p>
+
+<p class="verse">
+y dejar que vieras lo que sucede dentro de mí
+</p>
+
+<p class="verse">
+cuando pienso en ti,
+</p>
+
+<p class="verse">
+quizás comprenderías
+</p>
+
+<p class="verse">
+por qué algunas palabras me quedan pequeñas.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse soft">
+No sabrías encontrar allí un corazón tranquilo.
+</p>
+
+<p class="verse emphasis">
+Encontrarías un universo entero
+<br>
+pronunciando tu nombre.
+</p>
+
+</div>
+</section>
+
+
+<!-- 03 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse highlight secret">
+Mi secreto de luna,
+</p>
+
+<p class="verse">
+qué extraño es amarte.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Porque mientras más te amo,
+</p>
+
+<p class="verse">
+menos me alcanza el lenguaje.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Quisiera decirte
+<span class="secret">te amo</span>
+</p>
+
+<p class="verse">
+y que dentro de esas dos palabras
+</p>
+
+<p class="verse">
+pudieras sentir mis brazos rodeándote,
+</p>
+
+<p class="verse">
+mis ojos buscándote entre todas las personas,
+</p>
+
+<p class="verse">
+mi alma reconociéndote incluso con los ojos cerrados.
+</p>
+
+</div>
+</section>
+
+
+<!-- 04 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Quisiera que cuando leas mi nombre
+</p>
+
+<p class="verse">
+sientas un poquito de la paz
+</p>
+
+<p class="verse">
+que siento yo cuando pienso en el tuyo.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Quisiera que supieras
+</p>
+
+<p class="verse">
+que hay una parte de mí
+</p>
+
+<p class="verse highlight">
+que solamente sabe existir
+<br>
+cuando está cerca de ti.
+</p>
+
+</div>
+</section>
+
+
+<!-- 05 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Si pudiera elegir un lugar para vivir
+</p>
+
+<p class="verse">
+no escogería una ciudad,
+</p>
+
+<p class="verse">
+ni una casa,
+</p>
+
+<p class="verse">
+ni un paisaje frente al mar.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Escogería ese pequeño instante
+</p>
+
+<p class="verse">
+en el que tú me miras
+</p>
+
+<p class="verse">
+y el mundo deja de tener tanta importancia.
+</p>
+
+<div class="small-symbol">✦</div>
+
+<p class="verse emphasis">
+Ahí.
+<br>
+Exactamente ahí.
+</p>
+
+</div>
+</section>
+
+
+<!-- 06 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Donde tus ojos encuentran los míos
+</p>
+
+<p class="verse">
+y por unos segundos
+</p>
+
+<p class="verse">
+todo parece estar en su sitio.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse highlight">
+Quiero vivir en ese instante.
+</p>
+
+<p class="verse">
+Quiero quedarme allí
+</p>
+
+<p class="verse">
+cuando tengamos días hermosos
+</p>
+
+<p class="verse">
+y también cuando la vida se vuelva difícil.
+</p>
+
+</div>
+</section>
+
+
+<!-- 07 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque no quiero solamente
+</p>
+
+<p class="verse">
+los momentos en que todo sonríe.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Quiero tu mano
+<br>
+cuando el día pese.
+</p>
+
+<p class="verse emphasis">
+Tu abrazo
+<br>
+cuando las palabras no alcancen.
+</p>
+
+<p class="verse emphasis">
+Tu presencia
+<br>
+cuando el mundo parezca demasiado grande.
+</p>
+
+</div>
+</section>
+
+
+<!-- 08 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y quiero que tú tengas la mía
+</p>
+
+<p class="verse">
+cuando necesites recordar
+</p>
+
+<p class="verse">
+que existe alguien
+</p>
+
+<p class="verse">
+que te elegiría incluso
+</p>
+
+<p class="verse">
+en los días en que tú misma
+</p>
+
+<p class="verse highlight">
+no sepas cómo elegirte.
+</p>
+
+</div>
+</section>
+
+
+<!-- 09 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Hay algo que nunca te he sabido explicar del todo:
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+no solamente me enamora quién eres.
+</p>
+
+<p class="verse emphasis">
+Me enamora lo que sucede conmigo
+<br>
+cuando estoy contigo.
+</p>
+
+</div>
+</section>
+
+
+<!-- 10 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Me gusta la versión de mí
+</p>
+
+<p class="verse">
+que aparece cuando puedo abrazarte.
+</p>
+
+<p class="verse">
+La que sonríe sin darse cuenta.
+</p>
+
+<p class="verse">
+La que quiere quedarse unos minutos más.
+</p>
+
+<p class="verse">
+La que encuentra belleza
+</p>
+
+<p class="verse">
+en una conversación cualquiera,
+</p>
+
+<p class="verse">
+en una mirada pequeña,
+</p>
+
+<p class="verse">
+en una cercanía que para otros
+</p>
+
+<p class="verse">
+quizás parecería insignificante.
+</p>
+
+</div>
+</section>
+
+
+<!-- 11 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Contigo aprendí
+</p>
+
+<p class="verse">
+que el amor no siempre necesita grandes acontecimientos.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+A veces es simplemente
+</p>
+
+<p class="verse highlight">
+querer estar cerca.
+</p>
+
+<p class="verse">
+A veces es una mirada.
+</p>
+
+<p class="verse">
+A veces una sonrisa.
+</p>
+
+<p class="verse">
+A veces el deseo de cuidar
+</p>
+
+<p class="verse">
+ese pequeño pedazo de felicidad
+</p>
+
+<p class="verse">
+que alguien puso entre tus manos.
+</p>
+
+</div>
+</section>
+
+
+<!-- 12 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse emphasis">
+Y tú…
+</p>
+
+<p class="verse emphasis secret">
+tú eres mi pedazo de felicidad favorito.
+</p>
+
+</div>
+</section>
+
+
+<!-- 13 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Esta noche quisiera decirte algo
+</p>
+
+<p class="verse">
+que quizá no pueda explicarte mañana
+</p>
+
+<p class="verse">
+con la misma intensidad:
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+te amo profundamente.
+</p>
+
+<p class="verse">
+No de una manera bonita solamente.
+</p>
+
+<p class="verse">
+No de esas maneras que caben
+</p>
+
+<p class="verse">
+en una fotografía,
+</p>
+
+<p class="verse">
+en una canción
+</p>
+
+<p class="verse">
+o en una frase romántica.
+</p>
+
+</div>
+</section>
+
+
+<!-- 14 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Te amo de esa forma extraña
+</p>
+
+<p class="verse">
+en la que alguien empieza
+</p>
+
+<p class="verse">
+a formar parte de tus pensamientos
+</p>
+
+<p class="verse">
+sin pedir permiso.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+De esa forma en que
+</p>
+
+<p class="verse">
+una canción puede recordarte a ella.
+</p>
+
+<p class="verse">
+Una hora puede recordarte a ella.
+</p>
+
+<p class="verse">
+Una calle.
+</p>
+
+<p class="verse">
+Una noche.
+</p>
+
+<p class="verse">
+Una palabra.
+</p>
+
+<p class="verse">
+Un olor.
+</p>
+
+<p class="verse">
+Una película.
+</p>
+
+<p class="verse">
+Una pequeña costumbre.
+</p>
+
+</div>
+</section>
+
+
+<!-- 15 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y de pronto estás sonriendo
+</p>
+
+<p class="verse">
+porque en algún rincón de todo
+</p>
+
+<p class="verse highlight">
+apareció su recuerdo.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Así te llevo conmigo.
+</p>
+
+<p class="verse">
+En lugares donde nadie puede verte.
+</p>
+
+<p class="verse">
+En pensamientos que nadie escucha.
+</p>
+
+<p class="verse">
+En esa parte de mí
+</p>
+
+<p class="verse emphasis">
+donde solamente tú sabes llegar.
+</p>
+
+</div>
+</section>
+
+
+<!-- 16 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y si alguna vez dudas
+</p>
+
+<p class="verse">
+de cuánto significas para mí,
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+ven.
+</p>
+
+<p class="verse emphasis">
+Acércate.
+</p>
+
+<p class="verse">
+No necesito prepararte un discurso.
+</p>
+
+<p class="verse">
+Solo deja que te abrace.
+</p>
+
+</div>
+</section>
+
+
+<!-- 17 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque quizás mis brazos sepan decirte
+</p>
+
+<p class="verse">
+lo que mi voz no consigue.
+</p>
+
+<p class="verse">
+Quizás mi corazón,
+</p>
+
+<p class="verse">
+cuando esté cerca del tuyo,
+</p>
+
+<p class="verse">
+pueda confesarte sin palabras
+</p>
+
+<p class="verse">
+todo aquello que intento escribirte
+</p>
+
+<p class="verse">
+cada noche.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Que me importas.
+</p>
+
+<p class="verse">
+Que me encantas.
+</p>
+
+<p class="verse highlight">
+Que me vuelves loco de amor.
+</p>
+
+</div>
+</section>
+
+
+<!-- 18 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Que deseo seguir descubriendo
+</p>
+
+<p class="verse">
+cada rincón de tu manera de ser.
+</p>
+
+<p class="verse">
+Que quiero seguir conociendo
+</p>
+
+<p class="verse">
+tus silencios,
+</p>
+
+<p class="verse">
+tus risas,
+</p>
+
+<p class="verse">
+tus pequeños enojos,
+</p>
+
+<p class="verse">
+tus ocurrencias,
+</p>
+
+<p class="verse">
+tus miradas,
+</p>
+
+<p class="verse">
+tus formas de querer.
+</p>
+
+</div>
+</section>
+
+
+<!-- 19 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Quiero conocer
+</p>
+
+<p class="verse">
+incluso esas partes tuyas
+</p>
+
+<p class="verse">
+que todavía no me has enseñado.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Porque amarte
+</p>
+
+<p class="verse">
+también significa tener curiosidad
+</p>
+
+<p class="verse">
+por todo lo que todavía
+</p>
+
+<p class="verse highlight">
+me falta descubrir de ti.
+</p>
+
+</div>
+</section>
+
+
+<!-- 20 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Si la noche pudiera hablar,
+</p>
+
+<p class="verse">
+quizás te diría:
+</p>
+
+<div class="special">
+
+<p class="verse highlight">
+“Hay alguien que te está pensando.”
+</p>
+
+</div>
+
+<p class="verse">
+Pero se quedaría corta.
+</p>
+
+<p class="verse">
+Porque no te estoy simplemente pensando.
+</p>
+
+</div>
+</section>
+
+
+<!-- 21 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Estoy aquí,
+</p>
+
+<p class="verse">
+en medio de esta noche de viernes,
+</p>
+
+<p class="verse">
+dejando que mi corazón viaje hacia ti
+</p>
+
+<p class="verse">
+aunque estés lejos de mis brazos.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Y mientras el mundo continúa,
+</p>
+
+<p class="verse">
+mientras algunas ventanas se apagan
+</p>
+
+<p class="verse">
+y otras permanecen encendidas,
+</p>
+
+<p class="verse highlight">
+yo tengo una certeza
+<br>
+que no necesita ninguna estrella:
+</p>
+
+</div>
+</section>
+
+
+<!-- 22 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse emphasis">
+quiero seguir amándote.
+</p>
+
+<p class="verse">
+Quiero seguir encontrando
+</p>
+
+<p class="verse">
+nuevas maneras de hacerte sentir especial.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Nuevas palabras.
+</p>
+
+<p class="verse">
+Nuevos abrazos.
+</p>
+
+<p class="verse">
+Nuevas noches.
+</p>
+
+<p class="verse">
+Nuevos recuerdos.
+</p>
+
+<p class="verse">
+Nuevas razones para mirarte
+</p>
+
+<p class="verse">
+y pensar:
+</p>
+
+<p class="verse emphasis">
+“Sí…
+<br>
+era ella.”
+</p>
+
+</div>
+</section>
+
+
+<!-- 23 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque si el destino me preguntara
+</p>
+
+<p class="verse">
+qué fue lo más bonito
+</p>
+
+<p class="verse">
+que puso frente a mí,
+</p>
+
+<p class="verse">
+no tendría que pensarlo.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+No hablaría de lugares.
+</p>
+
+<p class="verse">
+No hablaría de suerte.
+</p>
+
+<p class="verse">
+No hablaría de casualidades.
+</p>
+
+<p class="verse emphasis">
+Diría tu nombre.
+</p>
+
+</div>
+</section>
+
+
+<!-- 24 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y si después me preguntara
+</p>
+
+<p class="verse">
+qué quiero hacer con ese regalo,
+</p>
+
+<p class="verse">
+le respondería:
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+cuidarlo.
+</p>
+
+<p class="verse emphasis">
+Cuidarte.
+</p>
+
+<p class="verse emphasis">
+Amarte.
+</p>
+
+<p class="verse emphasis">
+Elegirte.
+</p>
+
+</div>
+</section>
+
+
+<!-- 25 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y hacer todo lo posible
+</p>
+
+<p class="verse">
+para que nunca tengas que preguntarte
+</p>
+
+<p class="verse">
+si existe un lugar para ti en mi corazón.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Porque no existe solamente un lugar.
+</p>
+
+<p class="verse emphasis">
+Hay un universo entero.
+</p>
+
+<p class="verse emphasis secret">
+Y lleva tu nombre.
+</p>
+
+</div>
+</section>
+
+
+<!-- 26 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse highlight secret">
+Mi secreto de luna,
+</p>
+
+<p class="verse">
+si alguna vez pudiera regalarte
+</p>
+
+<p class="verse">
+algo más grande que un poema,
+</p>
+
+<p class="verse">
+te regalaría la posibilidad
+</p>
+
+<p class="verse">
+de mirar dentro de mí durante un instante.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Solo uno.
+</p>
+
+</div>
+</section>
+
+
+<!-- 27 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Para que vieras cómo cambia todo
+</p>
+
+<p class="verse">
+cuando apareces tú.
+</p>
+
+<p class="verse">
+Cómo mi mundo se vuelve más cálido.
+</p>
+
+<p class="verse">
+Cómo ciertas preocupaciones
+</p>
+
+<p class="verse">
+pierden fuerza.
+</p>
+
+<p class="verse">
+Cómo una simple imagen tuya
+</p>
+
+<p class="verse">
+puede arrancarme una sonrisa.
+</p>
+
+<p class="verse">
+Cómo mi corazón parece tener
+</p>
+
+<p class="verse">
+una dirección secreta
+</p>
+
+<p class="verse highlight">
+que siempre termina en ti.
+</p>
+
+</div>
+</section>
+
+
+<!-- 28 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y quizá entonces entenderías
+</p>
+
+<p class="verse">
+por qué no quiero amarte
+</p>
+
+<p class="verse">
+solamente en las noches bonitas.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Quiero amarte
+</p>
+
+<p class="verse">
+cuando haya estrellas
+</p>
+
+<p class="verse">
+y cuando haya nubes.
+</p>
+
+<p class="verse">
+Cuando tengamos palabras
+</p>
+
+<p class="verse">
+y cuando solo exista silencio.
+</p>
+
+</div>
+</section>
+
+
+<!-- 29 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Cuando nos sobren razones para sonreír
+</p>
+
+<p class="verse">
+y cuando necesitemos simplemente
+</p>
+
+<p class="verse">
+sentarnos juntos
+</p>
+
+<p class="verse">
+sin decir absolutamente nada.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse highlight">
+Quiero que mi amor por ti
+<br>
+no dependa de que el día sea perfecto.
+</p>
+
+</div>
+</section>
+
+
+<!-- 30 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Quiero que sea precisamente
+</p>
+
+<p class="verse">
+una de las cosas que hagan
+</p>
+
+<p class="verse">
+que los días imperfectos
+</p>
+
+<p class="verse emphasis">
+se sientan un poco más soportables.
+</p>
+
+</div>
+</section>
+
+
+<!-- 31 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Esta noche, entonces,
+</p>
+
+<p class="verse">
+no quiero prometerte
+</p>
+
+<p class="verse">
+un amor perfecto.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Quiero prometerte algo más verdadero:
+</p>
+
+<p class="verse">
+un amor que siga aprendiendo.
+</p>
+
+<p class="verse">
+Un amor que quiera conocerte.
+</p>
+
+<p class="verse">
+Un amor que quiera cuidarte.
+</p>
+
+</div>
+</section>
+
+
+<!-- 32 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Un amor que quiera acercarse
+</p>
+
+<p class="verse">
+cuando estés feliz
+</p>
+
+<p class="verse">
+y quedarse cuando estés triste.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Un amor que no quiera solamente
+</p>
+
+<p class="verse">
+ser parte de tus momentos bonitos,
+</p>
+
+<p class="verse highlight">
+sino convertirse lentamente
+<br>
+en uno de esos lugares
+<br>
+donde tu corazón pueda descansar.
+</p>
+
+</div>
+</section>
+
+
+<!-- 33 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque si algún día
+</p>
+
+<p class="verse">
+la vida te parece demasiado pesada,
+</p>
+
+<p class="verse">
+quiero que recuerdes
+</p>
+
+<p class="verse">
+que existe un corazón
+</p>
+
+<p class="verse">
+que pronuncia tu nombre
+</p>
+
+<p class="verse highlight">
+con una ternura inmensa.
+</p>
+
+<p class="verse emphasis secret">
+El mío.
+</p>
+
+</div>
+</section>
+
+
+<!-- 34 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y ahora que esta noche avanza,
+</p>
+
+<p class="verse">
+quizás la luna ya esté cansándose
+</p>
+
+<p class="verse">
+de mirarnos desde arriba.
+</p>
+
+<p class="verse">
+Quizás las estrellas
+</p>
+
+<p class="verse">
+estén cerrando lentamente sus ojos.
+</p>
+
+<p class="verse">
+Quizás el mundo entero
+</p>
+
+<p class="verse">
+esté quedándose en silencio.
+</p>
+
+</div>
+</section>
+
+
+<!-- 35 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Pero yo todavía tengo algo que decirte.
+</p>
+
+<p class="verse">
+Algo que quiero dejar aquí
+</p>
+
+<p class="verse">
+para que esta noche lo guarde.
+</p>
+
+<p class="verse">
+Algo que no quiero que el tiempo borre.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Te amo.
+</p>
+
+<p class="verse">
+Te amo con esa intensidad
+</p>
+
+<p class="verse">
+que no necesita hacer ruido
+</p>
+
+<p class="verse">
+para ser inmensa.
+</p>
+
+</div>
+</section>
+
+
+<!-- 36 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Te amo en lo que recuerdo.
+</p>
+
+<p class="verse">
+Te amo en lo que espero.
+</p>
+
+<p class="verse">
+Te amo en lo que todavía
+</p>
+
+<p class="verse">
+no hemos vivido.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Te amo en cada pequeño futuro
+</p>
+
+<p class="verse">
+que mi imaginación construye
+</p>
+
+<p class="verse highlight">
+cuando te coloca a mi lado.
+</p>
+
+</div>
+</section>
+
+
+<!-- 37 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y si alguna vez me preguntas
+</p>
+
+<p class="verse">
+qué quiero encontrar
+</p>
+
+<p class="verse">
+cuando lleguen las noches futuras,
+</p>
+
+<p class="verse">
+quizás mi respuesta sea sencilla:
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+quiero seguir encontrándote a ti.
+</p>
+
+<p class="verse">
+Una y otra vez.
+</p>
+
+<p class="verse">
+En cada etapa.
+</p>
+
+<p class="verse">
+En cada cambio.
+</p>
+
+<p class="verse">
+En cada nueva versión de nosotros.
+</p>
+
+</div>
+</section>
+
+
+<!-- 38 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Así que duerme tranquila esta noche,
+</p>
+
+<p class="verse highlight secret">
+mi secreto de luna.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Mientras tú cierras los ojos,
+</p>
+
+<p class="verse">
+hay un corazón que sigue despierto
+</p>
+
+<p class="verse">
+agradeciendo al destino
+</p>
+
+<p class="verse">
+por haber permitido
+</p>
+
+<p class="verse">
+que nuestros caminos se cruzaran.
+</p>
+
+</div>
+</section>
+
+
+<!-- 39 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y si mañana el sol vuelve
+</p>
+
+<p class="verse">
+como siempre,
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+que vuelva.
+</p>
+
+<p class="verse">
+Que ilumine las calles.
+</p>
+
+<p class="verse">
+Que despierte las ciudades.
+</p>
+
+<p class="verse">
+Que haga comenzar otro día.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Porque yo ya tengo mi propia luz.
+</p>
+
+</div>
+</section>
+
+
+<!-- 40 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse emphasis secret">
+La encontré en ti.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse">
+Y desde entonces
+</p>
+
+<p class="verse">
+hay noches en las que la luna
+</p>
+
+<p class="verse highlight">
+simplemente no puede competir.
+</p>
+
+</div>
+</section>
+
+
+<!-- 41 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Porque existe una mujer
+</p>
+
+<p class="verse">
+capaz de iluminarme incluso desde lejos.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis secret">
+Tú.
+</p>
+
+<p class="verse">
+Mi secreto de luna.
+</p>
+
+<p class="verse">
+Mi coincidencia favorita.
+</p>
+
+<p class="verse">
+Mi lugar inesperado.
+</p>
+
+<p class="verse">
+Mi pensamiento más bonito.
+</p>
+
+</div>
+</section>
+
+
+<!-- 42 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+La mujer que, sin saberlo,
+</p>
+
+<p class="verse">
+consiguió que mi corazón
+</p>
+
+<p class="verse">
+aprendiera una nueva manera
+</p>
+
+<p class="verse">
+de decir:
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+“quédate.”
+</p>
+
+</div>
+</section>
+
+
+<!-- 43 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+Y si alguna vez el universo
+</p>
+
+<p class="verse">
+me concede una eternidad,
+</p>
+
+<p class="verse">
+no voy a pedirle riquezas,
+</p>
+
+<p class="verse">
+ni milagros,
+</p>
+
+<p class="verse">
+ni estrellas.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Solo voy a pedirle una cosa:
+</p>
+
+</div>
+</section>
+
+
+<!-- 44 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse">
+que dentro de esa eternidad
+</p>
+
+<p class="verse">
+todavía exista un momento
+</p>
+
+<p class="verse">
+en el que pueda mirarte,
+</p>
+
+<p class="verse">
+tomar tu mano,
+</p>
+
+<p class="verse">
+acercarme lentamente a ti
+</p>
+
+<p class="verse">
+y decirte, con todo mi corazón:
+</p>
+
+</div>
+</section>
+
+
+<!-- 45 -->
+
+<section class="stanza">
+<div class="stanza-inner">
+
+<p class="verse emphasis">
+“Después de tanto tiempo,
+</p>
+
+<p class="verse emphasis">
+después de tantas noches,
+</p>
+
+<p class="verse emphasis">
+después de todo lo vivido…
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis secret">
+sigues siendo tú.
+</p>
+
+<div class="pause"></div>
+
+<p class="verse emphasis">
+Y todavía te elegiría.”
+</p>
+
+</div>
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     CONSTELACIÓN FINAL
+===================================================== -->
+
+<section class="final-constellation">
+
+<div class="constellation-core">
+
+    <div class="constellation-star" style="left:18%;top:23%;"></div>
+    <div class="constellation-star" style="left:32%;top:39%;animation-delay:.8s;"></div>
+    <div class="constellation-star" style="left:49%;top:28%;animation-delay:1.4s;"></div>
+    <div class="constellation-star" style="left:65%;top:44%;animation-delay:.4s;"></div>
+    <div class="constellation-star" style="left:80%;top:25%;animation-delay:1.8s;"></div>
+    <div class="constellation-star" style="left:74%;top:67%;animation-delay:1s;"></div>
+    <div class="constellation-star" style="left:50%;top:77%;animation-delay:2s;"></div>
+    <div class="constellation-star" style="left:28%;top:70%;animation-delay:.6s;"></div>
+
+    <div class="constellation-line"
+         style="left:18%;top:23%;width:120px;transform:rotate(28deg);"></div>
+
+    <div class="constellation-line"
+         style="left:32%;top:39%;width:110px;transform:rotate(-18deg);"></div>
+
+    <div class="constellation-line"
+         style="left:49%;top:28%;width:120px;transform:rotate(34deg);"></div>
+
+    <div class="constellation-line"
+         style="left:65%;top:44%;width:100px;transform:rotate(-25deg);"></div>
+
+    <div class="constellation-line"
+         style="left:74%;top:67%;width:110px;transform:rotate(180deg);"></div>
+
+    <div class="constellation-line"
+         style="left:50%;top:77%;width:125px;transform:rotate(205deg);"></div>
+
+    <div class="final-message">
+
+        <div class="mini">
+            última constelación
+        </div>
+
+        <h2>
+            Que el cielo guarde tu nombre
+            donde ninguna noche pueda borrarlo.
+        </h2>
+
+        <p>
+            Porque esta noche no termina aquí.<br>
+            Se queda viviendo en nosotros.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CIERRE
+===================================================== -->
+
+<section class="ending">
+
+    <div class="ending-symbol">
+        ✦ · ✦
+    </div>
+
+    <h2 class="ending-title">
+        Buenas noches,<br>
+        mi secreto de luna.
+    </h2>
+
+    <p class="ending-text">
+
+        Que la noche te abrace
+        con la misma ternura
+        con la que yo quisiera hacerlo ahora.
+
+        <br><br>
+
+        Y que mientras duermes,
+        alguna estrella perdida
+        lleve hasta tu ventana
+        un pedacito de mi amor.
+
+        <br><br>
+
+        Porque esta noche
+        no quiero que el cielo te recuerde
+        que existen estrellas.
+
+        <br><br>
+
+        Quiero que te recuerde
+        que, en algún lugar,
+
+        <br><br>
+
+        existe alguien que te ama
+        con un corazón
+        que todavía no ha aprendido
+        a quererte poquito.
+
+        <br><br>
+
+        Y jamás quiere aprender.
+
+    </p>
+
+    <div class="love-final">
+        Viernes · 7 de agosto · 2026
+    </div>
+
+</section>
+
+
+<a href="#top" class="top" id="topButton">
+    ↑
+</a>
+
+
+<div class="star-note" id="starNote"></div>
+
+
+<script>
+
+/* =========================================================
+   ESTRELLAS DEL CIELO
+========================================================= */
+
+const sky = document.getElementById("sky");
+
+for(let i = 0; i < 150; i++){
+
+    const star = document.createElement("div");
+
+    star.className =
+        Math.random() > .9
+        ? "star big"
+        : "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    star.style.animationDuration =
+        (2 + Math.random() * 4) + "s";
+
+    sky.appendChild(star);
+}
+
+
+/* =========================================================
+   ESTRELLAS TOCABLES
+========================================================= */
+
+const starNotes = [
+
+    "Si pudieras mirar dentro de mí, encontrarías un universo pronunciando tu nombre.",
+
+    "Hay lugares donde nadie puede verte, pero tú sigues estando allí.",
+
+    "No quiero solamente tus días bonitos. Quiero estar también cuando el mundo pese.",
+
+    "Mi corazón tiene una dirección secreta: siempre termina en ti.",
+
+    "No existe solamente un lugar para ti en mi corazón. Existe un universo entero.",
+
+    "La luna puede iluminar la noche. Tú iluminas algo mucho más profundo.",
+
+    "Hay amores que hacen ruido. El mío solamente necesita seguir existiendo.",
+
+    "Si alguna vez dudas, acércate. Quizás mis brazos sepan responderte.",
+
+    "Todavía te elegiría. Incluso después de tantas noches.",
+
+    "Mi secreto de luna: hay una parte de mí que solamente sabe existir cuando está cerca de ti."
+
+];
+
+
+starNotes.forEach((text,index)=>{
+
+    const s = document.createElement("div");
+
+    s.className = "touch-star";
+
+    const positions = [
+        [12,18],
+        [26,12],
+        [41,22],
+        [58,14],
+        [74,25],
+        [88,16],
+        [8,55],
+        [89,52],
+        [18,82],
+        [76,85]
+    ];
+
+    s.style.left = positions[index][0] + "%";
+    s.style.top = positions[index][1] + "%";
+
+    s.addEventListener("click",()=>{
+
+        document.querySelectorAll(".touch-star")
+            .forEach(x=>x.classList.remove("active"));
+
+        s.classList.add("active");
+
+        const note =
+            document.getElementById("starNote");
+
+        note.textContent = text;
+
+        note.classList.add("show");
+
+        clearTimeout(window.noteTimer);
+
+        window.noteTimer =
+            setTimeout(()=>{
+                note.classList.remove("show");
+                s.classList.remove("active");
+            },5000);
+
+    });
+
+    sky.appendChild(s);
+
+});
+
+
+/* =========================================================
+   REVELAR ESTROFAS AL HACER SCROLL
+========================================================= */
+
+const stanzas =
+    document.querySelectorAll(".stanza");
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.15
+        }
+    );
+
+stanzas.forEach(stanza=>{
+    observer.observe(stanza);
+});
+
+
+/* =========================================================
+   CAMBIO DE AMBIENTE SEGÚN EL SCROLL
+========================================================= */
+
+const moon =
+    document.querySelector(".moon");
+
+window.addEventListener("scroll",()=>{
+
+    const max =
+        document.body.scrollHeight - window.innerHeight;
+
+    const progress =
+        window.scrollY / max;
+
+    const glow =
+        0.45 + progress * .4;
+
+    moon.style.opacity = glow;
+
+    moon.style.transform =
+        `translateY(${progress * 80}px)`;
+
+});
+
+
+/* =========================================================
+   BOTÓN ARRIBA
+========================================================= */
+
+const topButton =
+    document.getElementById("topButton");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 700){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================================================
+   PEQUEÑO EFECTO DE PROFUNDIDAD
+========================================================= */
+
+document.addEventListener("mousemove",(e)=>{
+
+    const x =
+        (e.clientX / window.innerWidth - .5) * 10;
+
+    const y =
+        (e.clientY / window.innerHeight - .5) * 10;
+
+    moon.style.marginLeft = x + "px";
+    moon.style.marginTop = y + "px";
+
+});
+
+
+/* =========================================================
+   TOQUE EN MÓVIL PARA EFECTO DE LUZ
+========================================================= */
+
+document.addEventListener("touchstart",(e)=>{
+
+    const touch = e.touches[0];
+
+    const light =
+        document.createElement("div");
+
+    light.style.position = "fixed";
+    light.style.left = touch.clientX + "px";
+    light.style.top = touch.clientY + "px";
+    light.style.width = "5px";
+    light.style.height = "5px";
+    light.style.borderRadius = "50%";
+    light.style.background = "#fff";
+    light.style.boxShadow =
+        "0 0 10px #fff, 0 0 35px rgba(210,190,255,.9)";
+    light.style.pointerEvents = "none";
+    light.style.zIndex = "50";
+    light.style.transform = "translate(-50%,-50%)";
+    light.style.transition = "1s ease";
+
+    document.body.appendChild(light);
+
+    requestAnimationFrame(()=>{
+
+        light.style.transform =
+            "translate(-50%,-50%) scale(8)";
+
+        light.style.opacity = "0";
+
+    });
+
+    setTimeout(()=>{
+        light.remove();
+    },1000);
+
+},{passive:true});
+
+</script>
+
+</body>
+  </html>
